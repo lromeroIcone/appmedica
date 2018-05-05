@@ -786,7 +786,7 @@ $('#modalD').iziModal('open');
     });
     }
 
-	function register(){
+	/*function register(){
     	var form = new FormData($("#regForm")[0]);
     	$.ajax({
 		url: "http://www.icone-solutions.com/doct/sqlOP.php",
@@ -821,7 +821,7 @@ $('#modalD').iziModal('open');
 	    }
 
         });
-    }
+    }*/
     
     function cancelC(idc){
     	$.ajax({
