@@ -663,7 +663,7 @@ $('#modalD').iziModal('open');
 	success: function(data){
 	    if(data.toString()=="1"){
 	    	
-	    	var nl = $("#expD").val().split("/");
+	    	var nl = $("#expD").val().split(" ");
 	    	$("#expL").append("<li><div class='edate'>"+nl[0]+"</div> <div class='edesc'>"+nl[1]+". "+nl[2]+"</div></li>")
             swal("Listo","Tus datos han sido modificados.","success");
            
@@ -994,17 +994,17 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
         $("#modalP .iziModal-content .icon-close").attr('style', '');
     }
 });
-	$(function() {
-    $("#expD").inputmask({
-    mask: "9999 / *{1,256} / *{1,256}",
-    greedy: false,
-     validator: "[A-Za-z0-9 ]"
-    
-  });
-                $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
-                $("#cvv").inputmask("999", {"placeholder": "000"});
-               $("#expdate").inputmask("99/9999", {"placeholder": "mm/aaaa"});
-                $("[data-mask]").inputmask();
+    $(function() {
+        /*$("#expD").inputmask({
+            mask: "9999 / *{1,256} / *{1,256}",
+            greedy: false,
+            validator: "[A-Za-z0-9 ]"
+        });*/
+        $("#expD").inputmask("9999 *{1,256} *{1,256}", {"placeholder": "aaaa / cargo / institucion"});
+        $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
+        $("#cvv").inputmask("999", {"placeholder": "000"});
+        $("#expdate").inputmask("99/9999", {"placeholder": "mm/aaaa"});
+        $("[data-mask]").inputmask();
 
      });
     document.addEventListener("backbutton", function(e){

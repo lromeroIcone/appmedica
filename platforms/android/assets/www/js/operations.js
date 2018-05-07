@@ -994,13 +994,12 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
         $("#modalP .iziModal-content .icon-close").attr('style', '');
     }
 });
-	$(function() {
-    $("#expD").inputmask({
-    mask: "9999 / *{1,256} / *{1,256}",
-    greedy: false,
-     validator: "[A-Za-z0-9 ]"
-    
-  });
+    $(function() {
+        $("#expD").inputmask({
+            mask: "9999 / *{1,256} / *{1,256}",
+            greedy: false,
+            validator: "[A-Za-z0-9 ]"
+        });
                 $("#card").inputmask("9999 9999 9999 9999", {"placeholder": "0000 0000 0000 0000"});
                 $("#cvv").inputmask("999", {"placeholder": "000"});
                $("#expdate").inputmask("99/9999", {"placeholder": "mm/aaaa"});
