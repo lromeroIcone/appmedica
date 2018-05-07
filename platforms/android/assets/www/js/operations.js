@@ -304,11 +304,12 @@ function checkC(){
          header: {
         left: 'prev,next',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay,listWeek'
+        //right: 'month,agendaWeek,agendaDay,listWeek'
+        right: 'agendaWeek,agendaDay,listWeek'
       },
          views: {
           listWeek: { buttonText: 'L' },
-          month: {buttonText: 'M'},
+          //month: {buttonText: 'M'},
            agendaWeek: {buttonText: 'S'},
             agendaDay: {buttonText: 'D'}
         },
@@ -410,7 +411,7 @@ $('#modalD').iziModal('open');
    	 		'<div class="idate"><div class="info_pay">'+
    	 			'<p>Cita con Dr(a). '+obj[i][2]+' </p>'+
    	 			'<p>'+obj[i][1]+' </p>'+
-   	 			'<p>Costo: '+obj[i][3]+'</p>'+
+   	 			'<p>Costo: $'+obj[i][3]+'</p>'+
    	 			'</div></div>'+
    	 	'</div>'+
    	 	
@@ -822,6 +823,51 @@ $('#modalD').iziModal('open');
 
         });
     }*/
+    
+    function register(){
+    var form = new FormData($("#regForm")[0]);
+    $.ajax({
+	url: "http://www.icone-solutions.com/doct/sqlOP.php",
+	type: "POST",
+	data: form,
+	contentType: false,
+	cache: false,
+	processData:false,
+	success: function(data){
+            console.log(data);
+	    if(!isNaN(data)){
+                var datos = data.toString().split(",");
+                if($("#tipoR").val()=="pacientes"){
+                    localStorage.setItem("tipo","pac");
+                    swal("Listo","Tu usuario ha sido registrado exitosamente.","success");
+                    localStorage.setItem("user",$("#mailR").val());
+                    localStorage.setItem("usi",data.toString());
+
+                    $.mobile.navigate( "#menu", { transition : "slide",info: "info about the #foo hash" });
+                }else{
+                    localStorage.setItem("tipo","doc");
+                    swal("Listo","Tu usuario ha sido registrado exitosamente.","success");
+                    localStorage.setItem("user",$("#mailR").val());
+                    localStorage.setItem("usi",data.toString());
+
+                    $.mobile.navigate( "#menuD", { transition : "slide",info: "info about the #foo hash" });
+                }
+	    } else if(data.toString()=="Error"){
+                //swal("Error",data.toString(),"error");
+                swal("Error","Este usuario ya ha sido registrado.","error");
+	    } else if(data.toString()=="Error1"){
+                swal("Error","Este usuario ya ha sido registrado como doctor.","error");
+            } else if(data.toString()=="Error2"){
+                swal("Error","Este usuario ya ha sido registrado como paciente.","error");
+            }
+	    $("#rega").prop("disabled",false);
+        },
+        error: function(){
+            swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
+        }
+
+    });
+}
     
     function cancelC(idc){
     	$.ajax({
