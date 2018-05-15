@@ -64,7 +64,7 @@
         <form id="regForm" >
         <input type="text" class="inputg nameval" placeholder="Nombre" data-clear-btn="true" name="userR" id="nombre" value="" required>
         <br />
-        <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="mailR" id="mailR" value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com" required>
+        <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="mailR" id="mailR" value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com" required>
         <br />
         <select name="sexo">
         	<option value="H">Hombre</option>
@@ -76,8 +76,8 @@
         <input type="password" class="inputg" placeholder="Confirma tu contraseña" data-clear-btn="true" name="passR2" id="pass2"  value="" required>
         <br />
         <select id="tipoR" name="tipoR">
-        	<option value="doctores">Doctor</option>
-        	<option value="pacientes">paciente</option>
+            <option value="doctores">Doctor</option>
+            <option value="pacientes">paciente</option>
         </select>
         <br />
         <center><input  type="submit" class="gbutton sched"  data-role="none" value="Aceptar"></center>
@@ -182,7 +182,7 @@
         <input data-role="none" type="file" name="fotoP" id="fotoP"/>
         <input type="text" class="inputg" placeholder="Nombre" data-clear-btn="true" name="nombreU" id="nombreU" value="">
         <br />
-        <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="mailU" id="mailU" value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com">
+        <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="mailU" id="mailU" value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com">
         <br />
         <input type="text" class="inputg numval" placeholder="Teléfono" data-clear-btn="true" name="telU" id="telU" value="">
         <br />
@@ -252,87 +252,71 @@
 </div>
 <div data-role="page" id="profileD">
     <div data-role="header" class="toph-p">
-    <h2 >&nbsp;</h2>
-    <a href="#menuD" data-role="none" class="rheader2 ui-btn-left" data-transition="slidedown" >&lsaquo; Perfil</a>
-  </div>
+        <h2 >&nbsp;</h2>
+        <a href="#menuD" data-role="none" class="rheader2 ui-btn-left" data-transition="slidedown" >&lsaquo; Perfil</a>
+    </div>
 
-  <div data-role="main" class="ui-content calcont">
-  	
-	
-		<ul class="option-tools items-3">
-			<li><a href="#profileD" data-transition="slide" class="normal-a active">Datos Personales</a></li>
-			<li><a href="#estudios" data-transition="slide" class="normal-a ">Estudios</a></li>
-			<li><a href="#consultorio" data-transition="slide" class="normal-a">Consultorio</a></li>
-		</ul>
-	
-	
+    <div data-role="main" class="ui-content calcont">
+        <ul class="option-tools items-3">
+            <li><a href="#profileD" data-transition="slide" class="normal-a active">Datos Personales</a></li>
+            <li><a href="#estudios" data-transition="slide" class="normal-a ">Estudios</a></li>
+            <li><a href="#consultorio" data-transition="slide" class="normal-a">Consultorio</a></li>
+        </ul>
         <form id="datosdForm" >
-        	<div class="profileI">
-        		<img id="docP" class="profileimg" src="img/logo.jpg" ></img>
-        		<a class="changeI" id="CID"  data-role="button" data-icon="plus" data-iconpos="notext">Delete</a>
-        	</div>
-        <input data-role="none" type="file" name="fotoD" id="fotoD"/>
-        <input type="text" class="inputg nameval" placeholder="Nombre" data-clear-btn="true" name="nombreD" id="nombreD" value="">
-        <br />
-        <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="mailD" id="mailD" value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com">
-        <br />
-        <input type="text" class="inputg numval" placeholder="Teléfono" data-clear-btn="true" name="telD" id="telD" value="">
-        <br />
-        
-        
-        
-        <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
-      </form>
-      
-  	
-  <div  class="sfootp"  data-position="fixed">
+            <div class="profileI">
+                <img id="docP" class="profileimg" src="img/logo.jpg" >
+                <a class="changeI" id="CID"  data-role="button" data-icon="plus" data-iconpos="notext">Delete</a>
+            </div>
+            <input data-role="none" type="file" name="fotoD" id="fotoD"/>
+            <input type="text" class="inputg nameval" placeholder="Nombre" data-clear-btn="true" name="nombreD" id="nombreD" value="">
+            <br />
+            <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="mailD" id="mailD" value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com">
+            <br />
+            <input type="text" class="inputg numval" placeholder="Teléfono" data-clear-btn="true" name="telD" id="telD" value="">
+            <br />
+            <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
+        </form>
+        <div  class="sfootp"  data-position="fixed">
 	
-  </div>
-  </div>
-  
+        </div>
+    </div>
 </div>
+   
 <div data-role="page" id="estudios">
     <div data-role="header" class="toph-p">
-    <h2 >&nbsp;</h2>
-    <a href="#menuD" data-role="none" class="rheader2 ui-btn-left" data-transition="slidedown" >&lsaquo; Perfil</a>
-  </div>
-
-  <div data-role="main" class="ui-content calcont">
-  	
-	
-		<ul class="option-tools items-3">
-			<li><a href="#profileD" data-transition="slide" class="normal-a">Datos Personales</a></li>
-			<li><a href="#estudios" data-transition="slide" class="normal-a  active">Estudios</a></li>
-			<li><a href="#consultorio" data-transition="slide" class="normal-a">Consultorio</a></li>
-		</ul>
-	
-	
-        <form id="datoseForm" >
-        <label class="bluel">Especialidad</label>
-        <input type="text" class="inputg" placeholder="Especialidad" data-clear-btn="true" name="espD" id="espD" value="">
-        <br />
-        <label class="bluel">Universidad</label>
-        <input type="text" class="inputg" placeholder="Universidad" data-clear-btn="true" name="uniD" id="uniD" value="">
-        <br />
-        <label class="bluel">Experiencia</label>
-        <input type="text" class="inputg" placeholder="aaaa / Cargo / Institución" data-clear-btn="true" name="expD" id="expD" value="">
-        <ul id="expL" data-role="none">
-      	
+        <h2 >&nbsp;</h2>
+        <a href="#menuD" data-role="none" class="rheader2 ui-btn-left" data-transition="slidedown" >&lsaquo; Perfil</a>
+    </div>
+    <div data-role="main" class="ui-content calcont">
+        <ul class="option-tools items-3">
+            <li><a href="#profileD" data-transition="slide" class="normal-a">Datos Personales</a></li>
+            <li><a href="#estudios" data-transition="slide" class="normal-a  active">Estudios</a></li>
+            <li><a href="#consultorio" data-transition="slide" class="normal-a">Consultorio</a></li>
         </ul>
-        <br />
-        <label class="bluel">Cédula</label>
-        <input type="text" class="inputg" placeholder="Cédula Profesional" data-clear-btn="true" name="cedD" id="cedD" value="">
-        <br />
-        <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
-      </form>
-      
-  	
-  <div  class="sfootp"  data-position="fixed">
+        <form id="datoseForm" >
+            <label class="bluel">Especialidad</label>
+            <input type="text" class="inputg" placeholder="Especialidad" data-clear-btn="true" name="espD" id="espD" value="">
+            <br />
+            <label class="bluel">Universidad</label>
+            <input type="text" class="inputg" placeholder="Universidad" data-clear-btn="true" name="uniD" id="uniD" value="">
+            <br />
+            <label class="bluel">Experiencia</label>
+            <input type="text" class="inputg" placeholder="aaaa / Cargo / Institución" data-clear-btn="true" name="expD" id="expD" value="">
+            <ul id="expL" data-role="none">
+
+            </ul>
+            <br />
+            <label class="bluel">Cédula</label>
+            <input type="text" class="inputg" placeholder="Cédula Profesional" data-clear-btn="true" name="cedD" id="cedD" value="">
+            <br />
+            <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
+        </form>	
+        <div  class="sfootp"  data-position="fixed">
 	
-  </div>
-  </div>
-  
+        </div>
+     </div>
 </div>
+   
 <div data-role="page" id="consultorio">
     <div data-role="header" class="toph-p">
         <h2 >&nbsp;</h2>
@@ -346,7 +330,7 @@
             <li><a href="#consultorio" data-transition="slide" class="normal-a  active">Consultorio</a></li>
         </ul><br><br>
         <center><h1>Consultorios</h1></center>
-        <form id="datoscForm" >
+        <form id="datoscForm">
             <label class="bluel">Calle</label>
             <input type="text" class="inputg" placeholder="Calle" data-clear-btn="true" name="calC" id="calC" value="">
             <br />
@@ -381,6 +365,7 @@
             <input type="text" class="inputg numval" maxlength="10" placeholder="Tel. Emergencias" data-clear-btn="true" name="emeC" id="emeC" value="">
             <br />
             <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
+            <br>
         </form>
 
         <div  class="sfootp"  data-position="fixed">

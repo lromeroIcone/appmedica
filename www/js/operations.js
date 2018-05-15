@@ -651,43 +651,34 @@ $('#modalD').iziModal('open');
         });
     }
     function updateDE(){
-    var form = new FormData($("#datoseForm")[0]);
-    form.append("userm",localStorage.getItem("usi"));
-    $.ajax({
-	url: "http://www.icone-solutions.com/doct/sqlOP.php",
-	type: "POST",
-	data: form,
-	contentType: false,
-	cache: false,
-	processData:false,
-	success: function(data){
-	    if(data.toString()=="1"){
-	    	
-	    	var nl = $("#expD").val().split(" ");
-	    	$("#expL").append("<li><div class='edate'>"+nl[0]+"</div> <div class='edesc'>"+nl[1]+". "+nl[2]+"</div></li>")
-            swal("Listo","Tus datos han sido modificados.","success");
-           
-
-	    }else{
-	    	
-	    	
-	    	
-           swal("Error","No se han podido modificar tus datos, revisa tu conexión e intentalo de nuevo","error");
-	    }
-	   
-	},
-
-	error: function(){
+        var form = new FormData($("#datoseForm")[0]);
+        form.append("userm",localStorage.getItem("usi"));
+        $.ajax({
+            url: "http://www.icone-solutions.com/doct/sqlOP.php",
+            type: "POST",
+            data: form,
+            contentType: false,
+            cache: false,
+            processData:false,
+            success: function(data){
+                if(data.toString()=="1"){
+                    var nl = $("#expD").val().split(" ");
+                    $("#expL").append("<li><div class='edate'>"+nl[0]+"</div> <div class='edesc'>"+nl[1]+". "+nl[2]+"</div></li>")
+                    swal("Listo","Tus datos han sido modificados.","success");
+                }else{
+                    swal("Error","No se han podido modificar tus datos, revisa tu conexión e intentalo de nuevo","error");
+                }
+            },
+            error: function(){
 		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
-	}
-
+            }
         });
     }
 
     function updateCD(){
         var form = new FormData($("#datoscForm")[0]);
         form.append("userm",localStorage.getItem("usi"));
-        
+        console.log("me llamaron");
         $.ajax({
             url: "http://www.icone-solutions.com/doct/sqlOP.php",
             type: "POST",
@@ -1228,24 +1219,24 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
   
     $("#datosdForm").submit(function(e){
     	e.preventDefault();
-		if(validac()){
-		    swal({
-	          title: "¿Estás seguro que tus datos son correctos?",
-	          text: "",
-	          type: "info",
-	          showCancelButton: true,
-	          confirmButtonColor: "#DD6B55",
-	          confirmButtonText: "Aceptar",
-	          showLoaderOnConfirm: true,
-	          closeOnConfirm: false,
-	          cancelButtonText: "Cancelar",
-	        },
-	        function(isConfirm){
-		        if(isConfirm){
-	 	         updateDD();
-	            }
-	     	});
-		}
+        if(validac()){
+            swal({
+                title: "¿Estás seguro que tus datos son correctos?",
+                text: "",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Aceptar",
+                showLoaderOnConfirm: true,
+                closeOnConfirm: false,
+                cancelButtonText: "Cancelar",
+            },
+            function(isConfirm){
+                if(isConfirm){
+                    updateDD();
+                }
+            });
+        }
     });
 
     function validac(){
@@ -1262,7 +1253,7 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
 
     $("#datoscForm").submit(function(e){
     	e.preventDefault();
-	
+	console.log("Aqui voy");
             swal({
               title: "¿Estás seguro que tus datos son correctos?",
               text: "",
@@ -1284,24 +1275,37 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
    
     $("#datoseForm").submit(function(e){
     	e.preventDefault();
-	
-	    swal({
-          title: "¿Estás seguro que tus datos son correctos?",
-          text: "",
-          type: "info",
-          showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
-          confirmButtonText: "Aceptar",
-          showLoaderOnConfirm: true,
-          closeOnConfirm: false,
-          cancelButtonText: "Cancelar",
-        },
-        function(isConfirm){
+	if(validae()){
+            swal({
+                title: "¿Estás seguro que tus datos son correctos?",
+                text: "",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Aceptar",
+                showLoaderOnConfirm: true,
+                closeOnConfirm: false,
+                cancelButtonText: "Cancelar",
+            },
+            function(isConfirm){
 	        if(isConfirm){
- 	         updateDE();
-            }
-         });
-   });
+                     updateDE();
+                }
+            }); 
+        }	   
+    });
+    
+    function validae(){
+        if($('#espD').val()==""){
+           swal("Error","El campo especialidad no puede estar vacío.","error");
+       	} else if($('#uniD').val()==""){
+           swal("Error","El campo universidad no puede estar vacío.","error");
+       	} else if($('#cedD').val()==""){
+           swal("Error","El campo cédula no puede estar vacío","error");
+       	} else{
+           return true;
+       	}
+    }
     $(".cancelAp").click(function(e){
  	swal({
           title: "¿Estás seguro que deseas cancelar tu cita?",
