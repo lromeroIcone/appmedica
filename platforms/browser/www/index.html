@@ -9,8 +9,8 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *" />
-   
-   
+
+
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
     <link rel="stylesheet" type="text/css" href="css/clndr.css" />
@@ -26,7 +26,6 @@
 
 <body>
    <!-- Seccción de luis -->
-	
   <div data-role="page" id="inicio">
     <div style="margin-top: 2cm">
       <h1 class="regt">BIENVENIDO</h1>
@@ -36,12 +35,12 @@
         </div>
         <div class="ui-content shadowu">
           <form id="loginForm" >
-            <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="user"  value="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="El formato debe ser de la forma: ejemplo@ejemplo.com">
+            <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="user"  value="">
             <br />
             <select id="tipoL" name="tipo">
             	<option value="pac">Paciente</option>
         	     <option value="doc">Doctor</option>
-        	
+
             </select>
             <br />
             <input type="password" class="inputg" placeholder="Contraseña" data-clear-btn="true" name="pass"  value="">
@@ -105,21 +104,21 @@
           </td>
           <td >
             <center><a href="#important_d"  data-transition="slideup"><img src="img/citas.png" width="60" height="60"></a></center>
-            <label class="hola">Citas</label>  
+            <label class="hola">Citas</label>
           </td>
         </tr>
         <tr>
           <td >
             <center><a href="#payment_list" data-transition="slidedown"><img src="img/pago.png" width="60" height="60"></a></center>
-            <label class="hola">Pagos</label>  
+            <label class="hola">Pagos</label>
           </td>
           <td >
             <center><a href="#confP"  data-transition="fade"><img src="img/conf.png" width="60" height="60"></a></center>
-            <label class="hola">Configuración</label>  
+            <label class="hola">Configuración</label>
           </td>
         </tr>
       </table>
-    
+
     </div>
   </div>
 </div>
@@ -140,21 +139,21 @@
           </td>
           <td >
             <center><a href="#patient_list"  data-transition="slideup"><img src="img/pacientes.png" width="60" height="60"></a></center>
-            <label class="hola">Pacientes</label>  
+            <label class="hola">Pacientes</label>
           </td>
         </tr>
         <tr>
           <td >
             <center><a href="#agenda"  data-transition="pop" ><img src="img/agenda.png" width="60" height="60"></a></center>
-            <label class="hola">Agenda</label>  
+            <label class="hola">Agenda</label>
           </td>
           <td >
             <center><a href="#confD"  data-transition="fade"><img src="img/conf.png" width="60" height="60"></a></center>
-            <label class="hola">Configuración</label>  
+            <label class="hola">Configuración</label>
           </td>
         </tr>
       </table>
-    
+
     </div>
   </div>
 </div>
@@ -165,15 +164,15 @@
   </div>
 
   <div data-role="main" class="ui-content calcont">
-  	
-	
+
+
 		<ul class="option-tools items-3">
 			<li><a href="#profileP" data-transition="slide" class="normal-a active">Datos Personales</a></li>
 			<li><a href="#expediente" data-transition="slide" class="normal-a ">Expediente</a></li>
 			<li><a href="#recentA" data-transition="slide" class="normal-a">Citas Recientes</a></li>
 		</ul>
-	
-	
+
+
         <form id="datosForm" >
         	<div class="profileI">
         		<img id="pacP" class="profileimg" src="img/logo.jpg" ></img>
@@ -210,13 +209,13 @@
         <br />
         <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
       </form>
-      
-  	
+
+
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
+
 </div>
 <div data-role="page" id="expediente">
     <div data-role="header" class="toph-p">
@@ -246,7 +245,7 @@
         <textarea name="pca" id="hns"></textarea>
         <br>
         </div>
-        <center><a href="http://icone-solutions.com/" class="gbutton sched" data-role="none">Descargar</a></center>
+        <center><a href="http://icone-solutions.com/doct/pdfprueba/prueba.php" class="gbutton sched" data-role="none">Descargar</a></center>
     </div>
 
 </div>
@@ -275,13 +274,14 @@
             <input type="text" class="inputg numval" placeholder="Teléfono" data-clear-btn="true" name="telD" id="telD" value="">
             <br />
             <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
+            <input type="hidden" name="op" value="1d">
         </form>
         <div  class="sfootp"  data-position="fixed">
-	
+
         </div>
     </div>
 </div>
-   
+
 <div data-role="page" id="estudios">
     <div data-role="header" class="toph-p">
         <h2 >&nbsp;</h2>
@@ -310,13 +310,13 @@
             <input type="text" class="inputg" placeholder="Cédula Profesional" data-clear-btn="true" name="cedD" id="cedD" value="">
             <br />
             <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
-        </form>	
+        </form>
         <div  class="sfootp"  data-position="fixed">
-	
+
         </div>
      </div>
 </div>
-   
+
 <div data-role="page" id="consultorio">
     <div data-role="header" class="toph-p">
         <h2 >&nbsp;</h2>
@@ -330,7 +330,7 @@
             <li><a href="#consultorio" data-transition="slide" class="normal-a  active">Consultorio</a></li>
         </ul><br><br>
         <center><h1>Consultorios</h1></center>
-        <form id="datoscForm">
+        <form id="datosConsul" method="post">
             <label class="bluel">Calle</label>
             <input type="text" class="inputg" placeholder="Calle" data-clear-btn="true" name="calC" id="calC" value="">
             <br />
@@ -364,12 +364,13 @@
             <label class="bluel">Teléfono Emergencias</label>
             <input type="text" class="inputg numval" maxlength="10" placeholder="Tel. Emergencias" data-clear-btn="true" name="emeC" id="emeC" value="">
             <br />
+            <input type="hidden" name="op" value="1c">
             <center><input  type="submit" class="gbutton sched"  data-role="none" value="Guardar"></center>
             <br>
         </form>
 
         <div  class="sfootp"  data-position="fixed">
-  
+
         </div>
     </div>
 </div>
@@ -380,25 +381,25 @@
   </div>
 
   <div data-role="main" class="ui-content calcont">
-  	
-	
+
+
 		<ul class="option-tools items-3">
 			<li><a href="#profileP" data-transition="slide" class="normal-a ">Datos Personales</a></li>
 			<li><a href="#expediente" data-transition="slide" class="normal-a ">Expediente</a></li>
 			<li><a href="#recentA" class="normal-a active">Citas Recientes</a></li>
 		</ul>
-	
-	
+
+
         <ul id="citasRUL" data-role="listview"   data-inset="true">
-   	 
+
         </ul>
-      
-  	
+
+
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
+
 </div>
 <div data-role="page" id="confD">
     <div data-role="header" class="toph-p">
@@ -407,15 +408,15 @@
     </div>
     <div style="margin-top: 2cm">
       <h2 class="regt">Configuración</h2>
-      
+
       <div class="ui-content shadowu">
-        
+
         <center><a class="gbutton sched" href="#profileD"> Modificar Perfil</a><br><br>
         <input  type="button" class="gbutton close sched"  data-role="none" value="Cerrar Sesión"></center>
-      
+
     </div>
   </div>
-  
+
 </div>
 
 <div data-role="page" id="confP">
@@ -425,17 +426,17 @@
     </div>
     <div style="margin-top: 2cm">
       <h2 class="regt">Configuración</h2>
-      
+
       <div class="ui-content shadowu">
-        
-        
+
+
         <center>
           <a class="gbutton sched" href="#profileP"> Modificar Perfil</a><br><br>
           <input  type="button" class="gbutton close sched"  data-role="none" value="Cerrar Sesión"></center>
-      
+
     </div>
   </div>
-  
+
 </div>
 
   <!-- Seccción de luis -->
@@ -448,24 +449,24 @@
     </div>
 
     <div data-role="main" class="ui-content calcont">
-  	
-	
+
+
         <ul class="option-tools items-3">
             <li><a href="#important_d" data-transition="slide" class="normal-a active">Importante</a></li>
             <li><a href="#calendar_p" data-transition="slide" class="normal-a ">Calendario</a></li>
             <li><a href="#map_search"  data-transition="slide" class="plus-s">+</a></li>
         </ul>
-	
+
         <ul id="citasUL" data-role="listview"   data-inset="true">
-   	 
+
         </ul>
-  	
+
         <div  class="sfootp"  data-position="fixed">
-	
+
         </div>
     </div>
 </div>
-<!-- lista de pagos -->  
+<!-- lista de pagos -->
 <div data-role="page" id="payment_list">
 
     <div data-role="header" class="toph-p">
@@ -479,13 +480,13 @@
   	<br/>
         <ul id="paymentL" data-role="listview" data-inset="true">
         </ul>
-  	
+
         <div  class="sfootp"  data-position="fixed">
-	
+
         </div>
     </div>
 </div>
-  
+
 <div data-role="page" id="calendar_p">
 
     <div data-role="header" class="toph-p">
@@ -494,15 +495,15 @@
     </div>
 
     <div data-role="main" class="ui-content calcont">
-  		
+
         <ul class="option-tools items-3">
             <li><a href="#important_d" data-transition="slide" class="normal-a">Importante</a></li>
             <li><a href="#calendar_p" data-transition="slide"  class="normal-a active">Calendario</a></li>
             <li><a href="#map_search"  data-transition="slide" class="plus-s">+</a></li>
         </ul>
-	
+
         <div id="modalP" class="modalSch">
-    	 
+
             <header>
                 <a href="" id="signin" class="active">Información</a>
                 <a href="" >Reprogramar</a>
@@ -528,11 +529,11 @@
                 <section class="hide">
                     <form id="repForm" method="post">
                         <input type="text" name="reptime" placeholder="Nueva fecha" class="chooseDT" data-role="none" id="timePs"/>
-                    
+
                         <footer>
                             <button data-iziModal-close data-iziModal-transitionOut="bounceOutDown">Cerrar</button>
                             <button class="submit">Reprogramar</button>
-                        
+
                         </footer>
                     </form>
                 </section>
@@ -540,15 +541,15 @@
         </div>
   	<div id='calendars'></div>
   	<hr class="dividerd" />
-  	
-  		
-  	
+
+
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
 </div>
-  
+
   <div data-role="page" id="agenda">
 
   <div data-role="header" class="toph-p">
@@ -557,9 +558,9 @@
   </div>
 
   <div data-role="main" class="ui-content calcont">
-  	
+
 	<div id="modalD" class="modalSch">
-    	 
+
         <header>
             <a href="" id="signin" class="active">Información</a>
             <a href="" >Reprogramar</a>
@@ -584,7 +585,7 @@
                 </section>
                 <section class="hide">
                    <input type="text" class="chooseDT" data-role="none" id="timeD"/>
-                    
+
                     <footer>
                         <button data-iziModal-close data-iziModal-transitionOut="bounceOutDown">Cerrar</button>
                         <button class="submit">Create Account</button>
@@ -594,18 +595,18 @@
     </div>
   	<div id='calendarsD'></div>
 
-  	
+
   	<hr class="dividerd" />
-  	
-  		
-  	
+
+
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
-  
+
+
   <div data-role="page" id="map_search">
 
   <div data-role="header" class="toph-p">
@@ -614,32 +615,32 @@
   </div>
 
   <div data-role="main" class="ui-content mapcont">
-  	
-	
+
+
 		<ul class="option-tools items-3">
 			<li><a href="#" class="normal-a">&nbsp;</a></li>
 			<li><a href="#map_search" class="normal-a active">Mapa</a></li>
 			<li><a href="#doctor_list" id="listg" data-transition="slide" class="normal-a">Lista</a></li>
 		</ul>
-	
+
       <form method="post" id="geocoding_form">
-      
-       
-        		 
+
+
+
                 <input type="text" class="searchB" placeholder="Búsqueda por especialidad" data-role="none" id="address" name="address" />
-        	
+
         		<input type="submit" data-role="none" class="hidden-f" value="" />
-        	
-         
-         
-      
+
+
+
+
       </form>
        <div id="map_canvas">
        </div>
-  	
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
   <div data-role="page" id="patient_list">
@@ -650,18 +651,18 @@
   </div>
 
   <div data-role="main" class="ui-content mapcont">
-  	
-	
-		
+
+
+
 	<form class="ui-filterable">
       <input id="pacFilter" class="searchB" placeholder="Búsqueda por nombre" data-role="none">
     </form>
  <ul id="pacUl" data-role="listview" data-filter="true" data-input="#pacFilter" data-autodividers="true" data-inset="true">
   </ul>
-  	
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
   <div data-role="page" id="doctor_list">
@@ -672,25 +673,25 @@
   </div>
 
   <div data-role="main" class="ui-content mapcont">
-  	
+
 	<ul class="option-tools items-3">
 			<li><a href="#" class="normal-a">&nbsp;</a></li>
 			<li><a data-rel="back" class="normal-a">Mapa</a></li>
 			<li><a href="#doctor_list" class="normal-a  active">Lista</a></li>
 		</ul>
-		
+
 	<form class="ui-filterable">
       <input id="doctorFilter" class="searchB" placeholder="Búsqueda por nombre" data-role="none">
     </form>
  <ul id="doctUl" data-role="listview" data-filter="true" data-input="#doctorFilter" data-autodividers="true" data-inset="true">
   </ul>
-  	
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
+
   <div data-role="page" id="doctor_show">
 
   <div data-role="header" class="toph-p">
@@ -699,7 +700,7 @@
   </div>
 
   <div data-role="main" class="ui-content mapcont">
-  	
+
 	<div class="dshowp">
 		<div id="imgd">
 		</div>
@@ -720,11 +721,11 @@
     	<p id="dom"></p>
     </div>
    </div>
-   
-	</div>	
+
+	</div>
 	<div class="infow">
 	<h1 class="study">Estudios</h1>
-   
+
    	<h3 class="study">Universidad</h3>
    	<div class="pointu">
    		<p>2016</p>
@@ -745,13 +746,13 @@
    	<br/>
 	</div>
 
-  	
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
+
   <div data-role="page" id="chooseD">
 
   <div data-role="header" class="toph-p">
@@ -784,9 +785,9 @@
   	<div class="elm-cent textM">
   		<textarea data-role="none" class="mcon" name="mcon"></textarea>
   	</div>
-	    
-	   
-	
+
+
+
      <br/>
      <hr class="dividerd" />
   	 <br/>
@@ -813,10 +814,10 @@
    <br/>
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
+
   <div data-role="page" id="payment">
 
   <div data-role="header" class="toph-p">
@@ -833,7 +834,7 @@
   	 </div>
   	 <hr class="dividerd" />
   	 <form id="payForm" method="post">
-  	 	
+
   	 <div class="ui-grid-a">
   	 	 <div class="ui-block-a ">
     	<div class="control-group">
@@ -842,7 +843,7 @@
             <input type="radio" data-role="none" value="t" name="mpay" checked="checked" />
         <div class="control_indicator"></div>
     </label>
-    
+
 </div>
     </div>
     <div class="ui-block-b ">
@@ -854,13 +855,13 @@
         <input type="radio" data-role="none" value="e" name="mpay" />
         <div class="control_indicator"></div>
     </label>
-    
+
 </div>
 
     </div>
   	 </div>
   	  <hr class="dividerd" />
-  	 
+
   	 	<div id="cPay">
   	 		<h1 class="grayt">Datos de pago</h1>
   	 		<img width="70px" src="img/visa.png" /><img width="70px" src="img/master.png" /><img width="70px" src="img/am.png" />
@@ -876,17 +877,17 @@
   	 	</div>
   	<button data-role="none" type="submit" class="schedb">Confirmar</button>
   	 </form>
-  	 
+
   	</div>
-  	 
-    
-  	
+
+
+
 
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
-  
+
   <div data-role="page" id="calendar_d">
 
   <div data-role="header" class="toph-p">
@@ -895,18 +896,18 @@
   </div>
 
   <div data-role="main" class="ui-content mapcont">
-  	
+
 	<ul class="option-tools items-3">
             <li><a href="#agenda" class="normal-a">Mes</a></li>
             <li><a href="#calendar_d" data-transition="pop" class="normal-a">Semana</a></li>
             <li><a href="#" class="normal-a  active">Día</a></li>
         </ul>
-		
-	
-  	
+
+
+
   </div>
   <div  class="sfootp"  data-position="fixed">
-	
+
   </div>
   </div>
     <script type="text/javascript" src="cordova.js"></script>
