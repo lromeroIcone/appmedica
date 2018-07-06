@@ -193,10 +193,10 @@ function checkC(){
      type: "POST",
      data: {paci:paci, datap:datap},
      success: function(data){
-
+       console.log(data);
          var obj = jQuery.parseJSON(data);
          datosp =obj;
-         $("histo").val(obj[0][0]);
+         $("#histo").val(obj[0][0]);
          /*if(datat=="pac"){
              $("#nombreU").val(obj[0][0]);
              $("#mailU").val(obj[0][1]);
