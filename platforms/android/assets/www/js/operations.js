@@ -812,6 +812,10 @@ $('#modalD').iziModal('open');
     }
 
     function recup(){
+      var u = $('#usua').val();
+      console.log(u);
+      var t = $('#tipoR').val();
+      console.log(t);
       var form = new FormData($('#recupForm')[0]);
       $.ajax({
          url: "http://www.icone-solutions.com/doct/sqlOP.php",
@@ -822,23 +826,17 @@ $('#modalD').iziModal('open');
          processData:false,
          error: function(xhr, settings, exception){ swal("Error","Revisa tu conexión a internet.","error")},
          success: function(data){
+           console.log(data);
            $.mobile.loading( "hide" );
            //$("#logac").prop("disabled",false);
            if(data.toString()!=="0"){
-             $.mobile.navigate( "#contra", { transition : "slide",info: "info about the #foo hash" });
-             /*var datos = data.toString().split(",");
+             var datos = data.toString().split(",");
              user = datos[0];
              usi = datos[1];
-             //$(".usern").text(user);
-             localStorage.setItem("user",user);
-             localStorage.setItem("usi",usi);
-             if($("#tipoL").val()=="pac"){
-             	localStorage.setItem("tipo","pac");
-             	$.mobile.navigate( "#menu", { transition : "slide",info: "info about the #foo hash" });
-             }else{
-             	localStorage.setItem("tipo","doc");
-             	$.mobile.navigate( "#menuD", { transition : "slide",info: "info about the #foo hash" });
-            }*/
+             $('#iduser').val(user);
+             $('#tipou').val(usi);
+             $.mobile.navigate( "#contra", { transition : "slide",info: "info about the #foo hash" });
+
            } else{
              swal("Error","El usuario que buscas no existe","error");
            }
@@ -848,6 +846,40 @@ $('#modalD').iziModal('open');
          swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
        }
      });
+    }
+    function nuevac(){
+      var form = new FormData($('#contraForm')[0]);
+      var pass = $('#pass').val();
+      var pass1 = $('#pass1').val();
+      if(pass == pass1){
+        $.ajax({
+           url: "http://www.icone-solutions.com/doct/sqlOP.php",
+           type: "POST",
+           data: form,
+           contentType: false,
+           cache: false,
+           processData:false,
+           error: function(xhr, settings, exception){ swal("Error","Revisa tu conexión a internet.","error")},
+           success: function(data){
+             console.log(data);
+             $.mobile.loading( "hide" );
+             //$("#logac").prop("disabled",false);
+             if(data.toString()==="0"){
+               $.mobile.navigate( "#inicio", { transition : "slide",info: "info about the #foo hash" });
+
+             } else{
+               swal("Error","No se pudo actualizar tu contraseña revisa tus datos","error");
+             }
+           },
+         error: function(){
+         	 $.mobile.loading( "hide");
+           swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
+         }
+       });
+     } else {
+       $.mobile.loading( "hide");
+       swal("Error","Las contraseñas no coinciden","error");
+     }
     }
 
 	/*function register(){
@@ -1156,6 +1188,21 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
     });
     recup();
   });
+  //datos para actualización de contraseña al ser recuperada
+  $('#contraForm').submit(function(e){
+    e.preventDefault();
+    html = $(this).jqmData( "html" ) || "";
+    var form = new FormData($("#loginForm")[0]);
+    $.mobile.loading( "show", {
+      text: "Verificando",
+      textVisible: true,
+      theme: "b",
+      textonly: false,
+      html: html
+    });
+    nuevac();
+  });
+
    $('#repForm').submit(function(e){
      e.preventDefault();
      if($(".chooseDT").val()!=""){

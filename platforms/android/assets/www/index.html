@@ -64,7 +64,7 @@
         </div>
         <div class="ui-content shadowu">
           <form id="recupForm" >
-            <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="usua"  value="">
+            <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="usua" id="usua"  value="">
             <br />
             <select id="tipoR" name="tipo">
             	<option value="pac">Paciente</option>
@@ -78,11 +78,10 @@
       </div>
       <div data-role="footer" class="sfoot" data-id="foo1" data-position="fixed">
         <a href="#registro" class="regt " data-role="none" data-transition="flip">Registrarse</a><br><br>
-        <a href="#olvido" class="regt" data-role="none" data-transition="flip">Olvidé mi contraseña</a>
       </div>
     </div>
   </div>
-  <div data-role="page" id="olvido">
+  <div data-role="page" id="contra">
     <div style="margin-top: 2cm">
       <h1 class="regt">RECUPERA TU CONTRASEÑA</h1>
       <div data-role="main" class="ui-content logob">
@@ -90,22 +89,19 @@
           <center><img src="img/logo.jpg" width="150"></center>
         </div>
         <div class="ui-content shadowu">
-          <form id="recupForm" >
-            <input type="email" class="inputg" placeholder="Correo" data-clear-btn="true" name="usua"  value="">
+          <form id="contraForm" >
+            <input type="hidden" id="iduser" name="iduser">
+            <input type="hidden" id="tipou" name="tipou">
+            <input type="password" class="inputg" placeholder="******" data-clear-btn="true" name="pass" id="pass" value="">
             <br />
-            <select id="tipoR" name="tipo">
-            	<option value="pac">Paciente</option>
-        	     <option value="doc">Doctor</option>
-
-            </select>
+            <input type="password" class="inputg" placeholder="******" data-clear-btn="true" name="pass1" id="pass1" value="">
             <br />
-            <center><input  type="submit" class="gbutton sched" data-role="none" value="Buscar"></center>
+            <center><input  type="submit" class="gbutton sched" data-role="none" value="Aceptar"></center>
           </form>
         </div>
       </div>
       <div data-role="footer" class="sfoot" data-id="foo1" data-position="fixed">
         <a href="#registro" class="regt " data-role="none" data-transition="flip">Registrarse</a><br><br>
-        <a href="#olvido" class="regt" data-role="none" data-transition="flip">Olvidé mi contraseña</a>
       </div>
     </div>
   </div>
