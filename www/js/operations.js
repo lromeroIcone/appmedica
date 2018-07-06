@@ -811,6 +811,45 @@ $('#modalD').iziModal('open');
     });
     }
 
+    function recup(){
+      var form = new FormData($('#recupForm')[0]);
+      $.ajax({
+         url: "http://www.icone-solutions.com/doct/sqlOP.php",
+         type: "POST",
+         data: form,
+         contentType: false,
+         cache: false,
+         processData:false,
+         error: function(xhr, settings, exception){ swal("Error","Revisa tu conexión a internet.","error")},
+         success: function(data){
+           $.mobile.loading( "hide" );
+           //$("#logac").prop("disabled",false);
+           if(data.toString()!=="0"){
+             $.mobile.navigate( "#contra", { transition : "slide",info: "info about the #foo hash" });
+             /*var datos = data.toString().split(",");
+             user = datos[0];
+             usi = datos[1];
+             //$(".usern").text(user);
+             localStorage.setItem("user",user);
+             localStorage.setItem("usi",usi);
+             if($("#tipoL").val()=="pac"){
+             	localStorage.setItem("tipo","pac");
+             	$.mobile.navigate( "#menu", { transition : "slide",info: "info about the #foo hash" });
+             }else{
+             	localStorage.setItem("tipo","doc");
+             	$.mobile.navigate( "#menuD", { transition : "slide",info: "info about the #foo hash" });
+            }*/
+           } else{
+             swal("Error","El usuario que buscas no existe","error");
+           }
+         },
+       error: function(){
+       	 $.mobile.loading( "hide");
+         swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
+       }
+     });
+    }
+
 	/*function register(){
     	var form = new FormData($("#regForm")[0]);
     	$.ajax({
@@ -1088,7 +1127,7 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
 
       });
          paymentList();
-         $('#loginForm').submit(function(e){
+   $('#loginForm').submit(function(e){
      e.preventDefault();
      html = $(this).jqmData( "html" ) || "";
       var form = new FormData($("#loginForm")[0]);
@@ -1102,6 +1141,20 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
     login();
       //form.append("regID",localStorage.getItem('registrationId'));
 
+  });
+  //busqueda de correo para recuperación de contraseña
+  $('#recupForm').submit(function(e){
+    e.preventDefault();
+    html = $(this).jqmData( "html" ) || "";
+    var form = new FormData($("#loginForm")[0]);
+    $.mobile.loading( "show", {
+      text: "Verificando",
+      textVisible: true,
+      theme: "b",
+      textonly: false,
+      html: html
+    });
+    recup();
   });
    $('#repForm').submit(function(e){
      e.preventDefault();
