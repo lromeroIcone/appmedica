@@ -149,42 +149,77 @@ function checkC(){
       });
     }
     function getPD(){
- 	var idu = localStorage.getItem("usi");
- 	var datat =localStorage.getItem("tipo");
+      var idu = localStorage.getItem("usi");
+ 	    var datat =localStorage.getItem("tipo");
 
- 	$.ajax({
-	url: "http://www.icone-solutions.com/doct/sqlOP.php",
-	type: "POST",
-	data: {idu:idu,datat:datat},
-	success: function(data){
+ 	    $.ajax({
+        url: "http://www.icone-solutions.com/doct/sqlOP.php",
+      	type: "POST",
+      	data: {idu:idu,datat:datat},
+      	success: function(data){
 
-		var obj = jQuery.parseJSON(data);
-		datosp =obj;
-		if(datat=="pac"){
-			$("#nombreU").val(obj[0][0]);
-			$("#mailU").val(obj[0][1]);
-			$("#telU").val(obj[0][2]);
-			$("#sexoU").val(obj[0][3]);
-			$("#ecU").val(obj[0][4]);
-			$("#edadU").val(obj[0][5]);
-			$("#pacP").attr("src","http://icone-solutions.com/doct/img/"+obj[0][6]);
-			$('#sexoU').selectmenu('refresh', true);
-			$('#ecU').selectmenu('refresh', true);
-		}else{
-			$("#nombreD").val(obj[0][0]);
-			$("#mailD").val(obj[0][1]);
-			$("#telD").val(obj[0][2]);
+		        var obj = jQuery.parseJSON(data);
+	          datosp =obj;
+	          if(datat=="pac"){
+		            $("#nombreU").val(obj[0][0]);
+          			$("#mailU").val(obj[0][1]);
+          			$("#telU").val(obj[0][2]);
+          			$("#sexoU").val(obj[0][3]);
+          			$("#ecU").val(obj[0][4]);
+          			$("#edadU").val(obj[0][5]);
+          			$("#pacP").attr("src","http://icone-solutions.com/doct/img/"+obj[0][6]);
+          			$('#sexoU').selectmenu('refresh', true);
+          			$('#ecU').selectmenu('refresh', true);
+           }else{
+          			$("#nombreD").val(obj[0][0]);
+          			$("#mailD").val(obj[0][1]);
+          			$("#telD").val(obj[0][2]);
 
-			$("#docP").attr("src","http://icone-solutions.com/doct/img/"+obj[0][3]);
-		}
+          			$("#docP").attr("src","http://icone-solutions.com/doct/img/"+obj[0][3]);
+           }
+       },
+	      error: function(data){
+            	$.mobile.loading("hide");
+            	swal("Error","Revisa tu conexión e intentalo de nuevo","error");
+        }
+     });
+ }
+ function getEP(){
+   var paci = localStorage.getItem("usi");
+   var datap =localStorage.getItem("tipo");
 
+   $.ajax({
+     url: "http://www.icone-solutions.com/doct/sqlOP.php",
+     type: "POST",
+     data: {paci:paci, datap:datap},
+     success: function(data){
 
-	},
-	error: function(data){
-	              	$.mobile.loading("hide");
-	              	swal("Error","Revisa tu conexión e intentalo de nuevo","error");
-	              }
-	});
+         var obj = jQuery.parseJSON(data);
+         datosp =obj;
+         $("histo").val(obj[0][0]);
+         /*if(datat=="pac"){
+             $("#nombreU").val(obj[0][0]);
+             $("#mailU").val(obj[0][1]);
+             $("#telU").val(obj[0][2]);
+             $("#sexoU").val(obj[0][3]);
+             $("#ecU").val(obj[0][4]);
+             $("#edadU").val(obj[0][5]);
+             $("#pacP").attr("src","http://icone-solutions.com/doct/img/"+obj[0][6]);
+             $('#sexoU').selectmenu('refresh', true);
+             $('#ecU').selectmenu('refresh', true);
+        }else{
+             $("#nombreD").val(obj[0][0]);
+             $("#mailD").val(obj[0][1]);
+             $("#telD").val(obj[0][2]);
+
+             $("#docP").attr("src","http://icone-solutions.com/doct/img/"+obj[0][3]);
+        }*/
+    },
+     error: function(data){
+           $.mobile.loading("hide");
+           swal("Error","Revisa tu conexión e intentalo de nuevo","error");
+     }
+   });
  }
  function getED(){
  	var idm = localStorage.getItem("usi");
@@ -584,6 +619,7 @@ $('#modalD').iziModal('open');
     }
     function updateD(){
     var form = new FormData($("#datosForm")[0]);
+    console.log($('#fotoP').val());
     form.append("userm",localStorage.getItem("usi"));
     $.ajax({
 	url: "http://www.icone-solutions.com/doct/sqlOP.php",
@@ -1041,6 +1077,9 @@ $("#modalP, #modalD").on('click', 'header a', function(event) {
 
          getPD();
          getED();
+      });
+      $( '#expediente' ).on( 'pageshow',function(event){
+        getEP();
       });
       $( '#patient_list' ).on( 'pagebeforeshow',function(event){
 
