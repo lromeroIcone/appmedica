@@ -772,7 +772,7 @@ $('#modalD').iziModal('open');
    function login(){
 
     var form = new FormData($("#loginForm")[0]);
-
+    console.log("aqui");
     //form.append("regID",localStorage.getItem('registrationId'));
      $.ajax({
         url: "http://www.icone-solutions.com/doct/sqlOP.php",
@@ -849,8 +849,8 @@ $('#modalD').iziModal('open');
     }
     function nuevac(){
       var form = new FormData($('#contraForm')[0]);
-      var pass = $('#pass').val();
-      var pass1 = $('#pass1').val();
+      var pass = $('#pass3').val();
+      var pass1 = $('#pass4').val();
       if(pass == pass1){
         $.ajax({
            url: "http://www.icone-solutions.com/doct/sqlOP.php",
