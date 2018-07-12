@@ -617,9 +617,9 @@ $('#modalD').iziModal('open');
 
         });
     }
+
     function updateD(){
     var form = new FormData($("#datosForm")[0]);
-    console.log($('#fotoP').val());
     form.append("userm",localStorage.getItem("usi"));
     $.ajax({
 	url: "http://www.icone-solutions.com/doct/sqlOP.php",
@@ -642,15 +642,13 @@ $('#modalD').iziModal('open');
            swal("Error","No se han podido modificar tus datos, revisa tu conexión e intentalo de nuevo","error");
 	    }
 
-	},
-
-	error: function(){
-		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
-	}
+	   },
+      	error: function(){
+      		swal("Error","Actualmente tu dispositivo no cuenta con una conexión a internet","error");
+      	}
 
         });
     }
-
     function updateDD(){
     var form = new FormData($("#datosdForm")[0]);
     form.append("userm",localStorage.getItem("usi"));

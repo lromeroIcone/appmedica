@@ -224,7 +224,7 @@
 
 
         <form id="datosForm" >
-        	<div class="profileI">
+          <div class="profileI">
         		<img id="pacP" class="profileimg" src="img/logo.jpg" ></img>
         		<a class="changeI" id="CIP"  data-role="button" data-icon="plus" data-iconpos="notext">Delete</a>
         	</div>
@@ -796,7 +796,7 @@
   </div>
   </div>
 
-  <div data-role="page" id="chooseD">
+<div data-role="page" id="chooseD">
 
   <div data-role="header" class="toph-p">
     <h2 >&nbsp;</h2>
@@ -818,8 +818,11 @@
   	 <br/>
   	 <label class="infoe">Elige tu horario</label>
   	 <div class="dtcontainer">
-	    <input type="text" class="chooseDT" data-role="none" id="default_datetimepicker"/>
-	    <img width="25px" src="img/cal.png" />
+	    <!--<input type="text" class="chooseDT" data-role="none" id="default_datetimepicker"/>-->
+      <!--<input type="datetime-local" class="chooseDT" min="2018-06-07T00:00" max="2020-06-14T00:00" />-->
+      <!--<input type="datetime-local" class="chooseDT" value="1996-12-19T16:39:57" id="horacita" />-->
+      <input type="datetime-local" name="fechahora" class="chooseDT" step="1" min="2018-01-01T00:00" max="2020-12-31T12:00" value="2013-01-01T12:00">
+      <img width="25px" src="img/cal.png" />
 	 </div>
 	  <br/>
      <hr class="dividerd" />
