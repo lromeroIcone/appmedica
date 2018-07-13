@@ -288,7 +288,7 @@
         <br>
         </div>
         <!--<center><a href="http://icone-solutions.com/doct/pdfprueba/prueba.php" class="gbutton sched" data-role="none">Descargar</a></center>-->
-        <center><button class="gbutton sched" data-role="none" onclick="window.open('http://apache.org', '_blank', 'location=yes')">Descargar</button></center>
+        <center><button class="gbutton sched" data-role="none" onclick="window.open('http://icone-solutions.com/doct/pdfprueba/prueba.php', '_blank', 'location=yes')">Descargar</button></center>
     </div>
 
 </div>
@@ -811,6 +811,7 @@
   	    		<h3 id="a-sdname"></h3>
   	    		<h5 id="a-spec"></h5>
   	    		<h5 id="a-price"></h5>
+              	 		<input type="hidden" id="doctP"  name="doct" />
   	    	</div>
   	    </div>
   	 </div>
@@ -821,7 +822,7 @@
 	    <!--<input type="text" class="chooseDT" data-role="none" id="default_datetimepicker"/>-->
       <!--<input type="datetime-local" class="chooseDT" min="2018-06-07T00:00" max="2020-06-14T00:00" />-->
       <!--<input type="datetime-local" class="chooseDT" value="1996-12-19T16:39:57" id="horacita" />-->
-      <input type="datetime-local" name="fechahora" class="chooseDT" step="1" min="2018-01-01T00:00" max="2020-12-31T12:00" value="2013-01-01T12:00">
+      <input type="datetime-local" name="fechahora" class="chooseDT" step="1" min="2018-08-10T09:40" max="2020-12-31T12:00" value="2018-09-10T10:40">
       <img width="25px" src="img/cal.png" />
 	 </div>
 	  <br/>
@@ -912,7 +913,6 @@
   	 		<h1 class="grayt">Datos de pago</h1>
   	 		<img width="70px" src="img/visa.png" /><img width="70px" src="img/master.png" /><img width="70px" src="img/am.png" />
   	 		<br/><br/>
-  	 		<input type="hidden" id="doctP"  name="doct" />
   	 		<input type="hidden" id="month"  data-conekta="card[exp_month]" />
                         <input type="hidden" id="year" data-conekta="card[exp_year]"/>
                         <input type="hidden" id="totsf" name="total"/>

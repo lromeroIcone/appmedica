@@ -1,4 +1,3 @@
-
 if(localStorage.getItem("user")!=null){
     if(localStorage.getItem("tipo")=="pac"){
         $.mobile.navigate( "#menu", {transition:"pop" });
@@ -6,8 +5,6 @@ if(localStorage.getItem("user")!=null){
         $.mobile.navigate( "#menuD", {transition:"pop" });
     }
 }
-
-
 
 Conekta.setPublicKey('key_BpifLpJUQoudFUeD45P8HCw');
 Conekta.setLanguage("es");
@@ -259,6 +256,7 @@ function checkC(){
 	data: {gd:gd},
 	async: false,
 	success: function(data){
+    console.log(data);
 		$("#citasUL").empty();
 		var obj= jQuery.parseJSON(data);
 		for(var i=0;i< obj.length;i++){
@@ -272,12 +270,17 @@ function checkC(){
 				color="orangeb";
 				color2 = "orangep"
 			}
+      if(obj[i][1]!=""){
+        var f = obj[i][1];
+        var fecha = f.split('-');
+        var e = fecha[2].split('T');
+      }
 			$("#citasUL").append(' <li class="'+color+'">'+
    	 	'<div class="flexb">'+
    	 		'<div class="idate"><div style="background-image: url('+obj[i][4]+'");" class="doci"></div><div class="info_d">'+
    	 			'<h1>Dr(a). '+obj[i][2]+' <hr></h1>'+
-   	 			'<p>'+obj[i][5]+'</p>'+
-   	 			'<p>'+obj[i][1]+'</p>'+
+          '<p>'+obj[i][5]+'</p>'+
+   	 			'<p>'+e[0]+'/'+fecha[1]+'/'+fecha[0]+' '+e[1]+'</p>'+
    	 			'<p class="'+color2+'">$'+obj[i][3]+' '+obj[i][6]+'</p>'+
    	 			'</div></div>'+
    	 	'</div>'+
@@ -1002,12 +1005,17 @@ $(document).ready(function(){
 	        type: "POST",
 	        data: {citap:citap},
 	        success: function(data){
+            console.log(data);
 	        	var jobj = jQuery.parseJSON(data);
 	        	modal.stopLoading();
+            if(jobj[0][0]!=""){
+			        var f = jobj[0][0];
+			        var fecha = f.split('-');
+      			}
 	        	$(".doctN").text(jobj[0][2]);
 	        	$(".doctM").text(jobj[0][5]);
 	        	$(".doctPh").text(jobj[0][4]);
-	        	$(".cdate").text(jobj[0][0]);
+	        	$(".cdate").text(fecha[2]+'/'+fecha[1]+'/'+fecha[0]);
 	        	$(".hdate").text(jobj[0][1]);
 	        	$(".citaI").css("background-image", "url("+jobj[0][3]+")");
 	        },
@@ -1512,6 +1520,7 @@ var thisMonth = moment().format('YYYY-MM');
    $("#doctUl, #map_canvas").on("click",".showD",function(e){
    	e.preventDefault();
    	var d = $(this).data("doct");
+    console.log(d);
    		html = $(this).jqmData( "html" ) || "";
  	$.mobile.loading( "show", {
             text: "Cargando Info",
@@ -1526,7 +1535,7 @@ var thisMonth = moment().format('YYYY-MM');
 	type: "POST",
 	data: {doctor:d, idug:idug},
 	success: function(data){
-
+    console.log(data);
 		var docts = jQuery.parseJSON(data);
 		$("#doctP").val(docts[0][0]);
 		$("#imgd").css("background-image", "url('http://www.icone-solutions.com/doct/images/"+docts[0][4]+"')");
@@ -1626,6 +1635,7 @@ var thisMonth = moment().format('YYYY-MM');
  	if($(".chooseDT").val()!=""){
  		var check = $(".chooseDT").val();
  		var doct = $("#doctP").val();
+    console.log(doct);
  		$.ajax({
  			url: "http://www.icone-solutions.com/doct/sqlOP.php",
 	        type: "POST",

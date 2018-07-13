@@ -9,10 +9,10 @@
     </feature>
     <name>Doctores</name>
     <description>
-        Push sample application that receives push notifications.
+        Busca tu doctor.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="lromero@icone-solutions.com" href="http://icone-solutions.com">
+        ICONE Soluciones
     </author>
     <content src="index.html" />
     <allow-navigation href="*" />
